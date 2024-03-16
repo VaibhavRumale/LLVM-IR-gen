@@ -1,5 +1,5 @@
 from llvmlite import ir
-from lexer import tokenize  # Ensure lexer.py is correctly imported
+from lexer import tokenize  
 
 input_string = """
 let x = 10
@@ -10,7 +10,6 @@ print x
 module = ir.Module(name="tiny_calc_module")
 builder = None
 
-# Setup the main function and entry block
 func_ty = ir.FunctionType(ir.VoidType(), [])
 main_func = ir.Function(module, func_ty, name="main")
 block = main_func.append_basic_block(name="entry")
